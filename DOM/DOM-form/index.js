@@ -7,6 +7,8 @@ const donateAs = document.getElementById("donateAsOptions");
 const paymentMethod = document.getElementById("paymentMethodOptions");
 //amount
 const amountContainer = document.getElementById("amountOptions");
+//submit button
+const donateButton = document.getElementById("donateButton");
 
 //toggle the type of donation
 giveOnceBtn.addEventListener("click", function () {
@@ -29,7 +31,7 @@ const donateAsOptions = [
 
 donateAsOptions.forEach((option) => {
   const div = document.createElement("div");
-  div.innerHTML = `<input type="radio" id= "${option.id}" name="donateAs" value = "${option.label}">
+  div.innerHTML = `<input type="radio" id= "${option.id}" name="donateAs" value = "${option.label}" autocomplete="off">
   <label for="${option.id}">${option.label}</label> `;
   donateAs.appendChild(div);
 });
@@ -62,4 +64,38 @@ amountOptions.forEach((amount) => {
     document.getElementById("customAmount").value = amount;
   });
   amountContainer.appendChild(button);
+});
+
+// Handle form submission
+donateButton.addEventListener("click", () => {
+  const selectedDonateAs = document.querySelector(
+    'input[name="donateAs"]:checked'
+  )?.value;
+  const selectedAmount =
+    document.querySelector('input[name="amount"]:checked')?.value ||
+    document.getElementById("customAmount").value;
+  const selectedPaymentMethod = document.querySelector(
+    'input[name="paymentMethod"]:checked'
+  )?.value;
+  const additionalRemarks = document.getElementById("additionalRemarks").value;
+  if (
+    selectedDonateAs === undefined ||
+    selectedDonateAs === "" ||
+    selectedAmount === undefined ||
+    selectedAmount === "" ||
+    selectedPaymentMethod === undefined ||
+    selectedPaymentMethod === "" ||
+    additionalRemarks === undefined
+  ) {
+    alert("fill in the box");
+  } else {
+    // Log the selected values for demonstration purposes
+    console.log("Donation Details:", {
+      selectedDonateAs,
+      selectedAmount,
+      selectedPaymentMethod,
+      additionalRemarks,
+    });
+    alert("Donation processed!");
+  }
 });
