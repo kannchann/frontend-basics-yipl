@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.donation-form {
+    background-color: #f3f3f3;
+    width: 700px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donation-type {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.donation-btn {
+    color: rgb(99, 96, 96);
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: none;
+    background-color: #f3f3f3;
+    cursor: pointer;
+    padding-bottom: 3px;
+}
+
+.form-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; /* Adjust this value to control the gap between inputs */
+}
+
+.individual-input {
+    flex: 1;
+    min-width: 300px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-size: 1rem;
+}
+
+textarea {
+    height: 100px; /* Adjust this value to control textarea height */
+}
+
+.donate-btn {
+    padding: 1rem 2rem;
+    border: none;
+    background-color: maroon;
+    color: white;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+p {
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #555;
+    text-align: center;
+}
+
+/* js-functions */
+
+.donation-type .active{
+    color: black;
+    border-bottom: solid 3px hsla(53, 69%, 51%, 0.885);
+    font-weight:600;
+}

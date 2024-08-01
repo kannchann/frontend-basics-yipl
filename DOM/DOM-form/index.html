@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donation Form</title>
+    <link rel="stylesheet" href="index.css" />
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="donation-form">
+      <div class="donation-type">
+        <button id="giveOnce" class="donation-btn">Give Once</button>
+        <button id="donateMonthly" class="donation-btn">Donate Monthly</button>
+      </div>
+
+      <div class="form-section">
+        <div class="individual-input">
+          <label>Donate as</label>
+          <div id="donateAsOptions"></div>
+        </div>
+
+        <div class="individual-input">
+          <label>Amount</label>
+          <div id="amountOptions"></div>
+          <input type="text" id="customAmount" placeholder="Custom" />
+        </div>
+
+        <div class="individual-input">
+          <label>Payment method </label>
+          <div id="paymentMethodOptions"></div>
+        </div>
+
+        <div class="individual-input">
+          <label>Additional Remarks</label>
+          <textarea id="additionalRemarks"></textarea>
+        </div>
+      </div>
+
+      <button id="donateButton" class="donate-btn">Donate</button>
+
+      <p>
+        As an IPC registered charity, all donations to HealthServe are 250% tax
+        deductible.
+      </p>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
