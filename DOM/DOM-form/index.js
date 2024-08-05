@@ -7,6 +7,10 @@ const donateAs = document.getElementById("donateAsOptions");
 const paymentMethod = document.getElementById("paymentMethodOptions");
 //amount
 const amountContainer = document.getElementById("amountOptions");
+//custom amount input
+const customAmountInput = document.getElementById("customAmount");
+//additional remark input
+const additionalRemarksInput = document.getElementById("additionalRemarks");
 //submit button
 const donateButton = document.getElementById("donateButton");
 
@@ -79,15 +83,12 @@ donateButton.addEventListener("click", () => {
   )?.value;
   const additionalRemarks = document.getElementById("additionalRemarks").value;
   if (
-    selectedDonateAs === undefined ||
-    selectedDonateAs === "" ||
-    selectedAmount === undefined ||
-    selectedAmount === "" ||
-    selectedPaymentMethod === undefined ||
-    selectedPaymentMethod === "" ||
+    !selectedDonateAs ||
+    !selectedAmount ||
+    !selectedPaymentMethod ||
     additionalRemarks === undefined
   ) {
-    alert("fill in the box");
+    alert("Please fill in all required fields.");
   } else {
     // Log the selected values for demonstration purposes
     console.log("Donation Details:", {
@@ -97,5 +98,19 @@ donateButton.addEventListener("click", () => {
       additionalRemarks,
     });
     alert("Donation processed!");
+    // Reset the form after submission
+    document
+      .querySelectorAll('input[name="donateAs"]')
+      .forEach((radio) => (radio.checked = false));
+    document
+      .querySelectorAll('input[name="paymentMethod"]')
+      .forEach((radio) => (radio.checked = false));
+    document
+      .querySelectorAll(".amount-btn")
+      .forEach((btn) => btn.classList.remove("selected"));
+    customAmountInput.value = "";
+    additionalRemarksInput.value = "";
+    giveOnceBtn.classList.remove("active");
+    donateMonthlyBtn.classList.remove("active");
   }
 });
