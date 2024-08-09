@@ -1,3 +1,5 @@
+const para = document.querySelector("p");
+let count = 0;
 // setup canvas
 
 const canvas = document.querySelector("canvas");
@@ -28,8 +30,6 @@ class Shape {
 }
 
 class EvilCircle extends Shape {
-  color;
-  size;
   constructor(x, y) {
     super(x, y, 20, 20);
     this.color = "white";
@@ -61,16 +61,19 @@ class EvilCircle extends Shape {
   }
   checkBounds() {
     if (this.x + this.size >= width) {
-      this.x = width - this.size;
+      this.x -= this.size;
     }
-    if (this.x <= 0) {
-      this.x = this.x;
+
+    if (this.x - this.size <= 0) {
+      this.x += this.size;
     }
+
     if (this.y + this.size >= height) {
-      this.y = height - this.velY;
+      this.y -= this.size;
     }
-    if (this.y + this.size <= 0) {
-      this.y = this.size;
+
+    if (this.y - this.size <= 0) {
+      this.y += this.size;
     }
   }
 
@@ -82,6 +85,8 @@ class EvilCircle extends Shape {
         const distance = Math.sqrt(dx * dx + dy * dy);
         if (distance < this.size + ball.size) {
           ball.exists = false;
+          count--;
+          para.textContent = `Ball count:${count}`;
         }
       }
     }
@@ -146,6 +151,8 @@ while (balls.length < 25) {
     size
   );
   balls.push(ball);
+  count++;
+  para.textContent = `Ball count:${count}`;
 }
 const evil = new EvilCircle(random(0, width), random(0, height));
 function loop() {
